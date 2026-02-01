@@ -4,7 +4,7 @@ using DomainDrivenDesign.Domain.Shared;
 namespace DomainDrivenDesign.Domain.Users;
 public sealed class User : BaseEntity
 {
-    public User(Guid Id, Name name, Email email, Password password, Address address)
+    private User(Guid Id, Name name, Email email, Password password, Address address)
     : base(Id)
     {
         Name = name;
@@ -17,6 +17,19 @@ public sealed class User : BaseEntity
     public Email Email { get; private set; }
     public Password Password { get; private set; }
     public Address Address { get; private set; }
+
+
+    public static User CreateUser(string name, string email, string password, string country, string city, string street, string postalCode)
+    {
+        User user = new(
+            Id: Guid.CreateVersion7(),
+            name: new(name),
+            email: new(email),
+            password: new(password),
+            address: new(country, city, street, postalCode));
+
+        return user;
+    }
 
     public void ChangeNameValue(string value) => Name = new(value);
     public void ChangeEmailValue(string value) => Email = new(value);
