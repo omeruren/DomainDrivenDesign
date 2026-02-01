@@ -5,6 +5,7 @@ public sealed record Address(
 string Country,
 string City,
 string Street,
-string PostalCode);
+string PostalCode,
+string FullAddress);
 
 #endregion

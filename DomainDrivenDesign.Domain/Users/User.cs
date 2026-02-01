@@ -19,22 +19,22 @@ public sealed class User : BaseEntity
     public Address Address { get; private set; }
 
 
-    public static User CreateUser(string name, string email, string password, string country, string city, string street, string postalCode)
+    public static User CreateUser(string name, string email, string password, string country, string city, string street, string postalCode, string fullAddress)
     {
         User user = new(
             Id: Guid.CreateVersion7(),
             name: new(name),
             email: new(email),
             password: new(password),
-            address: new(country, city, street, postalCode));
+            address: new(country, city, street, postalCode, fullAddress));
 
         return user;
     }
 
     public void ChangeNameValue(string value) => Name = new(value);
     public void ChangeEmailValue(string value) => Email = new(value);
-    public void ChangeAddressValue(string country, string city, string street, string postalCode)
-        => Address = new(country, city, street, postalCode);
+    public void ChangeAddressValue(string country, string city, string street, string postalCode, string fullAddress)
+        => Address = new(country, city, street, postalCode, fullAddress);
     public void ChangePasswordValue(string value) => Password = new(value);
 
 }
