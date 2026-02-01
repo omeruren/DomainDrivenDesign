@@ -1,7 +1,12 @@
-﻿namespace DomainDrivenDesign.Domain.Users;
-public sealed class User
+﻿using DomainDrivenDesign.Domain.Abstractions;
+
+namespace DomainDrivenDesign.Domain.Users;
+public sealed class User : BaseEntity
 {
-    public Guid UserId { get; set; }
+    public User(Guid id) : base(id)
+    {
+    }
+
     public string Name { get; set; }
     public string Email { get; set; }
     public string Password { get; set; }

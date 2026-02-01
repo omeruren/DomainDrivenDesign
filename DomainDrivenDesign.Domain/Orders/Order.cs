@@ -1,7 +1,12 @@
-﻿namespace DomainDrivenDesign.Domain.Orders;
-public sealed class Order
+﻿using DomainDrivenDesign.Domain.Abstractions;
+
+namespace DomainDrivenDesign.Domain.Orders;
+public sealed class Order : BaseEntity
 {
-    public Guid Id { get; set; }
+    public Order(Guid id) : base(id)
+    {
+    }
+
     public string OrderNumber { get; set; }
     public DateTime CreateDate { get; set; }
     public OrderStatusEnum Status { get; set; }
