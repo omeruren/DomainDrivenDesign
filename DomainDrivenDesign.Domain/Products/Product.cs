@@ -5,11 +5,11 @@ using DomainDrivenDesign.Domain.Shared;
 namespace DomainDrivenDesign.Domain.Products;
 public sealed class Product : BaseEntity
 {
-    public Product(Guid id, Guid categoryId, Money price, int quantity, Name name) : base(id)
+    public Product(Guid id, Name name, int quantity, Money price, Guid categoryId) : base(id)
     {
         Name = name;
-        Quantity = quantity;
         Price = price;
+        Quantity = quantity;
         CategoryId = categoryId;
     }
 

@@ -14,7 +14,7 @@ public sealed class Order : BaseEntity
     public string OrderNumber { get; private set; }
     public DateTime CreateDate { get; private set; }
     public OrderStatusEnum Status { get; private set; }
-    public ICollection<OrderLine> OrderLines { get; private set; }
+    public ICollection<OrderLine> OrderLines { get; private set; } = new List<OrderLine>();
 
     public void CreateOrderLine(List<CreateOrderDto> createOrderDtos)
     {
