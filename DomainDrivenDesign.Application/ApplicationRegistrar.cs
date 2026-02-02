@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using DomainDrivenDesign.Domain.Abstractions;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DomainDrivenDesign.Application;
 public static class ApplicationRegistrar
@@ -7,7 +8,7 @@ public static class ApplicationRegistrar
     {
         services.AddMediatR(opt =>
         {
-            opt.RegisterServicesFromAssembly(typeof(ApplicationRegistrar).Assembly);
+            opt.RegisterServicesFromAssemblies(typeof(ApplicationRegistrar).Assembly, typeof(BaseEntity).Assembly);
 
         });
         return services;

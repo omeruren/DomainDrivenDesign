@@ -4,6 +4,7 @@ using DomainDrivenDesign.Domain.Shared;
 namespace DomainDrivenDesign.Domain.Users;
 public sealed class User : BaseEntity
 {
+
     private User(Guid Id, Name name, Email email, Password password, Address address)
     : base(Id)
     {
@@ -11,6 +12,10 @@ public sealed class User : BaseEntity
         Email = email;
         Password = password;
         Address = address;
+    }
+
+    private User(Guid id) : base(id)
+    {
     }
 
     public Name Name { get; private set; }

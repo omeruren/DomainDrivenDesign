@@ -4,6 +4,10 @@ using DomainDrivenDesign.Domain.Shared;
 namespace DomainDrivenDesign.Domain.Orders;
 public sealed class Order : BaseEntity
 {
+    private Order(Guid id) : base(id)
+    {
+    }
+
     public Order(Guid id, string orderNumber, DateTime createDate, OrderStatusEnum status) : base(id)
     {
         OrderNumber = orderNumber;

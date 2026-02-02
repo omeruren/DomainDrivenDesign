@@ -6,6 +6,10 @@ namespace DomainDrivenDesign.Domain.Orders;
 
 public sealed class OrderLine : BaseEntity
 {
+    private OrderLine(Guid id) : base(id)
+    {
+    }
+
     public OrderLine(Guid id, Guid productId, Guid orderId, int quantity, Money price) : base(id)
     {
         ProductId = productId;

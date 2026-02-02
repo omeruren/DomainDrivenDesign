@@ -5,6 +5,10 @@ using DomainDrivenDesign.Domain.Shared;
 namespace DomainDrivenDesign.Domain.Categories;
 public sealed class Category : BaseEntity
 {
+    private Category(Guid id) : base(id)
+    {
+    }
+
     public Category(Guid id, Name name) : base(id)
     {
         Name = name;
